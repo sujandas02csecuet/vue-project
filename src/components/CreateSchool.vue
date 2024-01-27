@@ -1,12 +1,8 @@
 <template>
-
-    <div>
-    <h3>Create New School</h3>
+  <div>
+    <h3>Joy Sree Rama</h3>
     <div class="container">
       <form @submit.prevent="registerAnswer">
-
-      <h1>Joy Sree Rama</h1>
-    
         <fieldset class="form-group">
           <label>First Name</label>
           <input type="text" class="form-control" v-model="firstName" />
@@ -23,54 +19,46 @@
       </form>
     </div>
   </div>
-
-
 </template>
-  
+
 <script>
-
-
 export default {
-    data() {
-        return {
-            firstName: null,
-            lastName:null,
-            email:null,
-            inpValSubmitted: 'Not submitted yet'
-
-
-        };
+  data() {
+    return {
+      firstName: null,
+      lastName: null,
+      email: null,
+      inpValSubmitted: "Not submitted yet",
+    };
+  },
+  methods: {
+    registerAnswer() {
+      if (this.firstName) {
+        this.inpValSubmitted = this.txtInp;
+      }
     },
-    methods: {
-        registerAnswer() {
-            if (this.firstName) {
-                this.inpValSubmitted = this.txtInp;
-            }
-        }
-    }
-}
+  },
+};
 </script>
-  
+
 <style scoped>
 div {
-    border: dashed black 1px;
-    border-radius: 10px;
-    padding: 0 20px 20px 20px;
-    margin-top: 20px;
-    
-    display: inline-block;
-    max-width: 250px;
+  border: dashed black 1px;
+  border-radius: 10px;
+  padding: 0 20px 20px 20px;
+  margin-top: 20px;
+
+  display: inline-block;
+  max-width: 250px;
 }
 
 button {
-    margin: 10px 0;
-    display: block;
+  margin: 10px 0;
+  display: block;
 }
 
 #pAnswer {
-    background-color: lightgreen;
-    padding: 5px;
+  background-color: lightgreen;
+  padding: 5px;
 }
-</style>     
-
-
+</style>
