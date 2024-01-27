@@ -4,6 +4,8 @@
     <h3>Create New School</h3>
     <div class="container">
       <form @submit.prevent="registerAnswer">
+
+      <h1>Joy Sree Rama</h1>
     
         <fieldset class="form-group">
           <label>First Name</label>
@@ -36,7 +38,7 @@ export default {
             email:null,
             inpValSubmitted: 'Not submitted yet'
 
-            
+
         };
     },
     methods: {
