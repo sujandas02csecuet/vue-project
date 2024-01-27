@@ -35,6 +35,8 @@ export default {
             lastName:null,
             email:null,
             inpValSubmitted: 'Not submitted yet'
+
+            
         };
     },
     methods: {
