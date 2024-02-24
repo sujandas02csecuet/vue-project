@@ -4,17 +4,25 @@
     <div class="container">
       <form @submit.prevent="registerAnswer">
         <fieldset class="form-group">
-          <label>First Name</label>
-          <input type="text" class="form-control" v-model="firstName" />
+          <label>Code</label>
+          <input type="text" class="form-control" v-model="code" />
         </fieldset>
         <fieldset class="form-group">
-          <label>Last Name</label>
-          <input type="text" class="form-control" v-model="lastName" />
+          <label>Name</label>
+          <input type="text" class="form-control" v-model="name" />
         </fieldset>
+        
         <fieldset class="form-group">
-          <label>Email Id</label>
-          <input type="text" class="form-control" v-model="email" />
+          <label>Address</label>
+          <input type="text" class="form-control" v-model="address" />
         </fieldset>
+
+        <fieldset class="form-group">
+          <label>Medium of Teaching</label>
+          <input type="text" class="form-control" v-model="teachingMedium" />
+        </fieldset>
+
+
         <button class="btn btn-success" type="submit">Save</button>
       </form>
     </div>
