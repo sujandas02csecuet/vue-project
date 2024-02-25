@@ -5,21 +5,21 @@
       <form @submit.prevent="saveSchool">
         <fieldset class="form-group">
           <label>Code</label>
-          <input type="text" class="form-control" v-model="code" />
+          <input type="text" class="form-control" v-model="school.code" />
         </fieldset>
         <fieldset class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" v-model="name" />
+          <input type="text" class="form-control" v-model="schoolname" />
         </fieldset>
         
         <fieldset class="form-group">
           <label>Address</label>
-          <input type="text" class="form-control" v-model="address" />
+          <input type="text" class="form-control" v-model="school.address" />
         </fieldset>
 
         <fieldset class="form-group">
           <label>Medium of Teaching</label>
-          <input type="text" class="form-control" v-model="teachingMedium" />
+          <input type="text" class="form-control" v-model="school.teachingMedium" />
         </fieldset>
 
 
@@ -30,21 +30,26 @@
 </template>
 
 <script>
+
+import axios from  'axios';
+
+
 export default {
+  name:"CreateSchoolModal",
   data() {
     return {
-      code: null,
-      name: null,
-      address: null,
-      teachingMedium:null,
-      inpValSubmitted: "Not submitted yet",
+     school:{},
     };
   },
   methods: {
     saveSchool() {
-      if (this.code) {
-        this.inpValSubmitted = this.txtInp;
-      }
+      axios.post("https://localhost:44384/api/School/AddSchool/",this.school)
+      .then((response)=>{
+        console.log(response.data)
+      })
+      .catch((error)=>{
+        console.log(error);
+      });;
     },
   },
 };

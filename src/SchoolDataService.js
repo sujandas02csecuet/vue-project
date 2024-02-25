@@ -5,8 +5,8 @@ class SchoolDataService {
         return axios.get(`https://localhost:44384/api/School/GetAllSchools`);
     }
 
-    retrieveUser(id) {
-        return axios.get(`${USER_API_URL}/users/${id}`);
+    AddSchool(school) {
+        return axios.post(`https://localhost:44384/api/School/AddSchool/${school}`);
     }
 
     deleteSchoolByCode(code) {
@@ -16,8 +16,6 @@ class SchoolDataService {
     updateUser(id, user) {
         return axios.put(`${USER_API_URL}/users/${id}`, user);
     }
-    createUser(user) {
-        return axios.post(`${USER_API_URL}/users`, user);
-    }
+   
   }
 export default new SchoolDataService()
