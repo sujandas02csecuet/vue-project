@@ -58,6 +58,13 @@ export default{
                 this.students=res.data;
             });
         },
+        DeleteStudentByRoll(rollNumber){
+            StudentDataService.deleteStudentByRoll(rollNumber).then(()=>{
+
+                this.message="Joy Sree Rama, Student Deleted";
+                this.refreshStudents();
+            });
+        }
     },
     created(){
         this.refreshStudents();
