@@ -31,8 +31,7 @@
 
 <script>
 
-import axios from  'axios';
-
+import axios from 'axios';
 
 export default {
   
@@ -62,7 +61,7 @@ export default {
                             }
             )
         .catch((error) => {
-                             console.error(error);
+                             console.log(error);
                           });
     },
   },
