@@ -35,7 +35,7 @@ import axios from  'axios';
 
 
 export default {
-  name:"CreateSchoolModal",
+  
   data() {
     return {
      school:{},
