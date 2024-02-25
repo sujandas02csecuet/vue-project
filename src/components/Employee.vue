@@ -23,11 +23,21 @@
             <th>Employee Type</th>
         </tr>
     </thead>
+    <tbody>
+        <tr v-for="employee in employees" v-bind:key="employee.id">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.presentAddress}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td>{{employee.nationalIdNo}}</td>
+        <td>{{employee.employeeType}}</td>
+        </tr>
+    </tbody>
 </table>
-
 </div>
-
-
 </template>
-<script></script>
+<script>
+
+</script>
 <style></style>
