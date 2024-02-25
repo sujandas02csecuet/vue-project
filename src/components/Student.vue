@@ -25,14 +25,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr v-for="student in students" v-bind:key="student.id">
+        <tr v-for="student in students" v-bind:key="student.rollNumber">
         <td>{{student.id}}</td>
         <td>{{student.name}}</td>
         <td>{{student.presentAddress}}</td>
         <td>{{student.rollNumber}}</td>
         <td>{{student.contactNo}}</td>
-        <td><button class="btn btn-warning v-on:click=UpdateStudent(student.Id)">Update</button></td>
-        <td><button class="btn btn-danger  v-on:click=DeleteStudentByRoll(student.rollNumber)">Delete</button></td>
+        <td><button class="btn btn-warning" v-on:click=updateStudent(student.rollNumber)>Update</button></td>
+        <td><button class="btn btn-danger"  v-on:click=deleteStudentByRoll(student.rollNumber)>Delete</button></td>
         </tr>
     </tbody>
 </table>
@@ -58,7 +58,7 @@ export default{
                 this.students=res.data;
             });
         },
-        DeleteStudentByRoll(rollNumber){
+        deleteStudentByRoll(rollNumber){
             StudentDataService.deleteStudentByRoll(rollNumber).then(()=>{
 
                 this.message="Joy Sree Rama, Student Deleted";

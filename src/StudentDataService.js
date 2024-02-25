@@ -5,7 +5,7 @@ class StudentDataService{
         return axios.get(`https://localhost:44384/api/Student/GetAllStudents`);
     }
     deleteStudentByRoll(rollNumber){
-           return axios.delete(`https://localhost:44384/api/School/DeleteStudentByRoll/${rollNumber}`);
+           return axios.delete(`https://localhost:44384/api/Student/DeleteStudentByRoll/${rollNumber}`);
 
     }
 }
