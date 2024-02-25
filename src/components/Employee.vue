@@ -38,6 +38,27 @@
 </div>
 </template>
 <script>
+import EmployeeDataService from '../EmployeeDataService'
+export default{
+name:"Employees",
+data(){
+    return{
+        employees:[],
+        message:"",
+    };
+},
+methods:{
+    refreshEmployees(){
+        EmployeeDataService.retrieveAllEmployees().then((res)=>{
 
+            this.employees=res.data;
+        });
+    },
+    created(){
+        this.refreshEmployees();
+    }
+}
+
+}
 </script>
 <style></style>
