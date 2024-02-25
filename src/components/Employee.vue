@@ -64,7 +64,11 @@
                     this.employees=res.data;
                 });
             },
-         
+            deleteEmployeeById(id){
+                EmployeeDataService.deleteEmployeeById(id).then((res)=>{
+                    this.message="Joy Sree Rama, Employee Deleted";
+                    this.refreshEmployees();});
+            }
         },
         created(){
             this.refreshEmployees();
