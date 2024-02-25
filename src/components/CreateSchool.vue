@@ -2,7 +2,7 @@
   <div>
     <h3>Joy Sree Rama</h3>
     <div class="container">
-      <form @submit.prevent="registerAnswer">
+      <form @submit.prevent="saveSchool">
         <fieldset class="form-group">
           <label>Code</label>
           <input type="text" class="form-control" v-model="code" />
@@ -33,15 +33,16 @@
 export default {
   data() {
     return {
-      firstName: null,
-      lastName: null,
-      email: null,
+      code: null,
+      name: null,
+      address: null,
+      teachingMedium:null,
       inpValSubmitted: "Not submitted yet",
     };
   },
   methods: {
-    registerAnswer() {
-      if (this.firstName) {
+    saveSchool() {
+      if (this.code) {
         this.inpValSubmitted = this.txtInp;
       }
     },
