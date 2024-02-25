@@ -38,7 +38,9 @@
 </div>
 </template>
 <script>
-import EmployeeDataService from '../EmployeeDataService'
+import EmployeeDataService from '@/EmployeeDataService.js';
+import SchoolDataService from "@/SchoolDataService.js";
+
 export default{
 name:"Employees",
 data(){
