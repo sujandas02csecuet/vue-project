@@ -48,13 +48,22 @@ export default {
   },
   methods: {
     saveSchool() {
-      axios.post(`https://localhost:44384/api/School/AddSchool/`,this.school)
-      .then((response)=>{
-        console.log(response.data)
-      })
-      .catch((error)=>{
-        console.log(error);
-      });
+      
+      const requestData = JSON.stringify(this.school);
+
+         axios.post("https://localhost:44384/api/School/AddSchool/", requestData, {
+         headers: {
+        'Content-Type': 'application/json', // Set the content type for JSON data
+                  },
+                                                                                 }
+                  )
+        .then((response) => {
+                             console.log(response.data);
+                            }
+            )
+        .catch((error) => {
+                             console.error(error);
+                          });
     },
   },
 };
