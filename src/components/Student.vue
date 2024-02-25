@@ -27,12 +27,12 @@
     <tbody>
         <tr v-for="student in students" v-bind:key="student.id">
         <td>{{student.id}}</td>
-        <td>{{student.Name}}</td>
-        <td>{{student.PresentAddress}}</td>
-        <td>{{student.RollNumber}}</td>
-        <td>{{student.ContactNo}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.presentAddress}}</td>
+        <td>{{student.rollNumber}}</td>
+        <td>{{student.contactNo}}</td>
         <td><button class="btn btn-warning v-on:click=UpdateStudent(student.Id)">Update</button></td>
-        <td><button class="btn btn-danger  v-on:click=DeleteStudentByRoll(student.RollNumber)">Delete</button></td>
+        <td><button class="btn btn-danger  v-on:click=DeleteStudentByRoll(student.rollNumber)">Delete</button></td>
         </tr>
     </tbody>
 </table>
