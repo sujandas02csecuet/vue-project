@@ -9,7 +9,7 @@
         </fieldset>
         <fieldset class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" v-model="schoolname" />
+          <input type="text" class="form-control" v-model="school.name" />
         </fieldset>
         
         <fieldset class="form-group">
@@ -38,12 +38,17 @@ export default {
   
   data() {
     return {
-     school:{},
+     school:{
+      code:'',
+      name:'',
+      address:'',
+      teachingMedium:''
+     },
     };
   },
   methods: {
     saveSchool() {
-      axios.post("https://localhost:44384/api/School/AddSchool/",this.school)
+      axios.post(`https://localhost:44384/api/School/AddSchool/`,this.school)
       .then((response)=>{
         console.log(response.data)
       })
