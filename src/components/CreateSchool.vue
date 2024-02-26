@@ -2,24 +2,24 @@
   <div>
     <h3>Joy Sree Rama</h3>
     <div class="container">
-      <form @submit.prevent="saveSchool">
+      <form @submit="validateAndSubmit">
         <fieldset class="form-group">
           <label>Code</label>
-          <input type="text" class="form-control" v-model="school.code" />
+          <input type="text" class="form-control" v-model="school.Code" />
         </fieldset>
         <fieldset class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" v-model="school.name" />
+          <input type="text" class="form-control" v-model="school.Name" />
         </fieldset>
         
         <fieldset class="form-group">
           <label>Address</label>
-          <input type="text" class="form-control" v-model="school.address" />
+          <input type="text" class="form-control" v-model="school.SchoolAddress" />
         </fieldset>
 
         <fieldset class="form-group">
           <label>Medium of Teaching</label>
-          <input type="text" class="form-control" v-model="school.teachingMedium" />
+          <input type="text" class="form-control" v-model="school.MediumOfTeaching" />
         </fieldset>
 
 
@@ -32,40 +32,57 @@
 <script>
 
 import axios from 'axios';
+import SchoolDataService from '../SchoolDataService'
 
-export default {
+export default{
+  data(){
+    return{
+      school:{
+        Id:"",
+        Flag:"",
+        Code:"",
+        Name:"",
+        SchoolAddress:"",
+        MediumOfTeaching:"",
+      },
+      errors: [],
+    }
+  },
+
+  methods:{
+    async validateAndSubmit(e){
+      e.preventDefault();
+      this.errors = [];
+      const postData = {
+          Id: this.school.Id,
+          Flag: this.school.Flag,
+          Code:this.school.Code,
+          Name:this.school.Name,
+          SchoolAddress:this.school.SchoolAddress,
+          MediumOfTeaching:this.school.MediumOfTeaching
+          
+        };
+
+      try{
+
+
+       const formData=new FormData();
+       formData.append("Code",this.Code);
+       
+       axios.post("https://localhost:44384/api/School/AddSchoolNew/",formData).then((response)=>{
+        console.log(response.data);
+       })
+
+     
+      }
+      catch(error){
+        console.log('Error making POST request:', error.message);
+      }
+    }
+  }
+}
   
-  data() {
-    return {
-     school:{
-      code:'',
-      name:'',
-      address:'',
-      teachingMedium:''
-     },
-    };
-  },
-  methods: {
-    saveSchool() {
-      
-      const requestData = JSON.stringify(this.school);
 
-         axios.post("https://localhost:44384/api/School/AddSchool/", requestData, {
-         headers: {
-        'Content-Type': 'application/json', // Set the content type for JSON data
-                  },
-                                                                                 }
-                  )
-        .then((response) => {
-                             console.log(response.data);
-                            }
-            )
-        .catch((error) => {
-                             console.log(error);
-                          });
-    },
-  },
-};
 </script>
 
 <style scoped>

@@ -6,8 +6,9 @@ class SchoolDataService {
     }
 
     AddSchool(school) {
-        return axios.post(`https://localhost:44384/api/School/AddSchool/${school}`);
+        return axios.post(`https://localhost:44384/api/School/AddSchoolNew/`,school);
     }
+ 
 
     deleteSchoolByCode(code) {
         return axios.delete(`https://localhost:44384/api/School/DeleteSchoolByCode/${code}`);

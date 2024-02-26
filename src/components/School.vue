@@ -72,6 +72,8 @@ export default {
     };
   },
   methods: {
+
+    
     refreshSchools() {
       SchoolDataService.retrieveAllSchools().then((res) => {
         this.schools = res.data;
