@@ -9,6 +9,10 @@ class EmployeeDataService{
     deleteEmployeeById(id){
         return axios.delete(`${USER_API_URL}/DeleteEmployeeById/${id}`);
     }
+    createEmployee(employee) {
+        return axios.post(`${USER_API_URL}/AddEmployee`, employee);
+    }
+
 }
 
 export default new EmployeeDataService()

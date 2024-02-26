@@ -10,6 +10,8 @@ import School from './components/School.vue'
 import Student from './components/Student.vue'
 import CreateSchool from './components/CreateSchool.vue';
 import CreateStudent from './components/CreateStudent.vue';
+import CreateEmployee from './components/CreateEmployee.vue';
+import UpdateSchool from './components/UpdateSchool.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -22,7 +24,11 @@ const router = createRouter({
         { path: "/Student", component: Student },
 
        { path: "/CreateSchool", component: CreateSchool },
-       {path:"/CreateStudent",component:CreateStudent}
+       {path:"/CreateStudent",component:CreateStudent},
+
+       {path:"/CreateEmployee",component:CreateEmployee},
+       {path:"/UpdateSchool/:id",  component:UpdateSchool}
+       
     ]
 });
 

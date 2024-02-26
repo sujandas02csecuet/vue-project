@@ -64,6 +64,10 @@
                     this.employees=res.data;
                 });
             },
+            addEmployee() {
+            this.$router.push("/CreateEmployee");
+           },
+
             deleteEmployeeById(id){
                 EmployeeDataService.deleteEmployeeById(id).then((res)=>{
                     this.message="Joy Sree Rama, Employee Deleted";

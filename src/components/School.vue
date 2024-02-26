@@ -43,7 +43,7 @@
           <td>{{ school.mediumOfTeaching }}</td>
 
           <td>
-            <button class="btn btn-warning" v-on:click="updateUser(school.id)">
+            <button class="btn btn-warning" v-on:click="updateSchool(school.id)">
               Update
             </button>
           </td>
@@ -82,6 +82,13 @@ export default {
     },
     addSchool() {
       this.$router.push("/CreateSchool");
+    },
+
+
+    updateSchool(id)
+    {
+      this.$router.push(`/UpdateSchool/${id}`);
+      //this.$router.push(`/user/${id}`);
     },
 
     deleteSchoolByCode(code) {
