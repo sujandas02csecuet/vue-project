@@ -12,10 +12,12 @@
               {{ error }}
             </div>
           </div>
+
           <fieldset class="form-group">
-            <label>Id</label>
-            <input type="text" readonly class="form-control" v-model="Id" />
+            <label>Code</label>
+            <input type="text" readonly  class="form-control" v-model="Id"  />
           </fieldset>
+         
           <fieldset class="form-group">
             <label>Code</label>
             <input type="text" class="form-control" v-model="Code" />
@@ -53,41 +55,27 @@
         SchoolAddress: "",
         MediumOfTeaching:"",
         Flag:"",
+        Id:"",
         errors: [],
       };
     },
-computed:{
-id(){
-  return this.$route.params.id;
-}
-},
+    computed:{
+       id(){
+            return this.$route.params.id;
+           },
+           },
     methods: {
 
       loadSchoolDetails(){
-        SchoolDataService.retrieveSchool(51).then((res) => {
-        this.Id = res.data.id;
-        this.Code = res.data.code;
-        this.Name = res.data.name;
-        this.SchoolAddress=res.data.schoolAddress;
-        this.MediumOfTeaching=res.data.mediumOfTeaching;
-      });
-      },
+        SchoolDataService.retrieveSchool(this.id).then((res) => {
+      
+        this.Code = res.data[0].code;
+        this.Name = res.data[0].name;
+        this.SchoolAddress=res.data[0].schoolAddress;
+        this.MediumOfTeaching=res.data[0].mediumOfTeaching;
+        this.Id=res.data[0].id;
 
-      validateAndSubmit(e) {
-        e.preventDefault();
-    
-         
-            SchoolDataService.createSchool({
-              Code: this.Code,
-              Name: this.Name,
-              SchoolAddress: this.SchoolAddress,
-             MediumOfTeaching:this.MediumOfTeaching,
-             Flag:this.Flag
-            
-            }).then(() => {
-              this.$router.push("/School");
-              alert("Joy Sree Rama");
-            }, err => this.errors.push(err.response.data.errors));
+      });
       },
     },
     created() {

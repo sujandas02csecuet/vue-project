@@ -87,8 +87,9 @@ export default {
 
     updateSchool(id)
     {
+      
       this.$router.push(`/UpdateSchool/${id}`);
-      //this.$router.push(`/user/${id}`);
+     
     },
 
     deleteSchoolByCode(code) {
