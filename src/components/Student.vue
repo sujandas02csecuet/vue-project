@@ -58,6 +58,10 @@ export default{
                 this.students=res.data;
             });
         },
+        addStudent() {
+      this.$router.push("/CreateStudent");
+        },
+
         deleteStudentByRoll(rollNumber){
             StudentDataService.deleteStudentByRoll(rollNumber).then(()=>{
 

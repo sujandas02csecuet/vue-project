@@ -83,13 +83,7 @@ export default {
     addSchool() {
       this.$router.push("/CreateSchool");
     },
-    updateUser(id) {
-      this.$router.push(`/user/${id}`);
-    },
-    ShowAlert() {
 
-      this.alert("Hello Vue Simple Alert.");
-    },
     deleteSchoolByCode(code) {
       SchoolDataService.deleteSchoolByCode(code).then(() => {
         this.message = "Joy Sree Rama";

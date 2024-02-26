@@ -1,22 +1,23 @@
 import axios from 'axios'
+const USER_API_URL = 'https://localhost:44384/api/School'
 class SchoolDataService {
 
     retrieveAllSchools() {
-        return axios.get(`https://localhost:44384/api/School/GetAllSchools`);
+        return axios.get(`${USER_API_URL}/GetAllSchools`);
     }
 
-    AddSchool(school) {
-        return axios.post(`https://localhost:44384/api/School/AddSchoolNew/`,school);
+    retrieveSchool(id) {
+        return axios.get(`${USER_API_URL}/GetSchooById/${id}`);
     }
- 
 
     deleteSchoolByCode(code) {
-        return axios.delete(`https://localhost:44384/api/School/DeleteSchoolByCode/${code}`);
+        return axios.delete(`${USER_API_URL}/DeleteSchoolByCode/${code}`);
+    }
+   
+    createSchool(school) {
+        return axios.post(`${USER_API_URL}/AddSchool`, school);
     }
 
-    updateUser(id, user) {
-        return axios.put(`${USER_API_URL}/users/${id}`, user);
-    }
    
   }
 export default new SchoolDataService()

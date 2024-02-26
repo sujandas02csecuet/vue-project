@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3>School</h3>
+      <h3>Student</h3>
       <div class="container">
         <form @submit="validateAndSubmit">
           <div v-if="errors.length">
@@ -13,22 +13,22 @@
             </div>
           </div>
           <fieldset class="form-group">
-            <label>Code</label>
-            <input type="text" class="form-control" v-model="Code" />
-          </fieldset>
-          <fieldset class="form-group">
             <label>Name</label>
             <input type="text" class="form-control" v-model="Name" />
           </fieldset>
-
           <fieldset class="form-group">
-            <label>School Address</label>
-            <input type="text" class="form-control" v-model="SchoolAddress" />
+            <label>Present Address</label>
+            <input type="text" class="form-control" v-model="PresentAddress" />
           </fieldset>
 
           <fieldset class="form-group">
-            <label>Medium Of Teaching</label>
-            <input type="text" class="form-control" v-model="MediumOfTeaching" />
+            <label>Roll Number</label>
+            <input type="text" class="form-control" v-model="RollNumber" />
+          </fieldset>
+
+          <fieldset class="form-group">
+            <label>Contact</label>
+            <input type="text" class="form-control" v-model="ContactNo" />
           </fieldset>
 
 <br/>
@@ -38,17 +38,17 @@
     </div>
   </template>
   <script>
-  import SchoolDataService from "../SchoolDataService";
+  import StudentDataService from "../StudentDataService";
   
   export default {
-    name: "School",
+    name: "Student",
     data() {
       return {
-        Code: "",
         Name: "",
-        SchoolAddress: "",
-        MediumOfTeaching:"",
-        Flag:"",
+        PresentAddress: "",
+        RollNumber: "",
+        ContactNo:"",
+    
         errors: [],
       };
     },
@@ -59,15 +59,15 @@
         e.preventDefault();
     
          
-            SchoolDataService.createSchool({
-              Code: this.Code,
+            StudentDataService.createStudent({
               Name: this.Name,
-              SchoolAddress: this.SchoolAddress,
-             MediumOfTeaching:this.MediumOfTeaching,
-             Flag:this.Flag
+              PresentAddress: this.PresentAddress,
+              RollNumber: this.RollNumber,
+              ContactNo:this.ContactNo
+           
             
             }).then(() => {
-              this.$router.push("/School");
+              this.$router.push("/Student");
               alert("Joy Sree Rama");
             }, err => this.errors.push(err.response.data.errors));
       },
