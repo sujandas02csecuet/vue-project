@@ -6,6 +6,11 @@ class EmployeeDataService{
 
         return axios.get(`${USER_API_URL}/GetAllEmployees`);
     }
+    
+    retrieveEmployee(id) {
+        return axios.get(`${USER_API_URL}/GetEmployeeById/${id}`);
+    }
+
     deleteEmployeeById(id){
         return axios.delete(`${USER_API_URL}/DeleteEmployeeById/${id}`);
     }

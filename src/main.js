@@ -29,7 +29,9 @@ const router = createRouter({
        {path:"/CreateEmployee",component:CreateEmployee},
        
        {path:"/UpdateSchool/:id",  component:UpdateSchool},
-       {path:"/UpdateStudent/:id", component:UpdateStudent}
+       {path:"/UpdateStudent/:id", component:UpdateStudent},
+
+       {path:"/UpdateEmployee/:id", component:UpdateEmployee}
        
     ]
 });

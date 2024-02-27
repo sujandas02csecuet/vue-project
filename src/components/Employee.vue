@@ -67,7 +67,12 @@
             addEmployee() {
             this.$router.push("/CreateEmployee");
            },
-
+           updateEmployee(id)
+           {
+      
+             this.$router.push(`/UpdateEmployee/${id}`);
+     
+           },
             deleteEmployeeById(id){
                 EmployeeDataService.deleteEmployeeById(id).then((res)=>{
                     this.message="Joy Sree Rama, Employee Deleted";
