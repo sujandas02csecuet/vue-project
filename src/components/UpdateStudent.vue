@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3>School</h3>
+      <h3>Student</h3>
       <div class="container">
         <form @submit="validateAndSubmit">
           <div v-if="errors.length">
@@ -14,27 +14,27 @@
           </div>
 
           <fieldset class="form-group">
-            <label>Code</label>
+            <label>Id</label>
             <input type="text" readonly  class="form-control" v-model="Id"  />
           </fieldset>
          
           <fieldset class="form-group">
-            <label>Code</label>
-            <input type="text" class="form-control" v-model="Code" />
-          </fieldset>
-          <fieldset class="form-group">
             <label>Name</label>
             <input type="text" class="form-control" v-model="Name" />
           </fieldset>
-
           <fieldset class="form-group">
-            <label>School Address</label>
-            <input type="text" class="form-control" v-model="SchoolAddress" />
+            <label>Present Address</label>
+            <input type="text" class="form-control" v-model="PresentAddress" />
           </fieldset>
 
           <fieldset class="form-group">
-            <label>Medium Of Teaching</label>
-            <input type="text" class="form-control" v-model="MediumOfTeaching" />
+            <label>Roll Number</label>
+            <input type="text" class="form-control" v-model="RollNumber" />
+          </fieldset>
+
+          <fieldset class="form-group">
+            <label>Contact No</label>
+            <input type="text" class="form-control" v-model="ContactNo" />
           </fieldset>
 
 <br/>
@@ -44,18 +44,18 @@
     </div>
   </template>
   <script>
-  import SchoolDataService from "../SchoolDataService";
+  import StudentDataService from "../StudentDataService";
   
   export default {
-    name: "UpdateSchool",
+    name: "UpdateStudent",
     data() {
       return {
-        Code: "",
+        Id: "",
         Name: "",
-        SchoolAddress: "",
-        MediumOfTeaching:"",
-        Flag:"",
-        Id:"",
+        PresentAddress: "",
+        RollNumber:"",
+        ContactNo:"",
+       
         errors: [],
       };
     },
@@ -66,20 +66,21 @@
            },
     methods: {
 
-      loadSchoolDetails(){
-        SchoolDataService.retrieveSchool(this.id).then((res) => {
+      loadStudentDetails(){
+        StudentDataService.retrieveStudent(this.id).then((res) => {
       
-        this.Code = res.data[0].code;
-        this.Name = res.data[0].name;
-        this.SchoolAddress=res.data[0].schoolAddress;
-        this.MediumOfTeaching=res.data[0].mediumOfTeaching;
         this.Id=res.data[0].id;
+        this.Name = res.data[0].name;
+        this.PresentAddress=res.data[0].presentAddress;
+        this.RollNumber=res.data[0].rollNumber;
+        this.ContactNo=res.data[0].contactNo;
+      
 
       });
       },
     },
     created() {
-    this.loadSchoolDetails();
+    this.loadStudentDetails();
   },
   };
   </script>

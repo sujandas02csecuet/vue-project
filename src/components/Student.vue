@@ -31,7 +31,7 @@
         <td>{{student.presentAddress}}</td>
         <td>{{student.rollNumber}}</td>
         <td>{{student.contactNo}}</td>
-        <td><button class="btn btn-warning" v-on:click=updateStudent(student.rollNumber)>Update</button></td>
+        <td><button class="btn btn-warning" v-on:click=updateStudent(student.id)>Update</button></td>
         <td><button class="btn btn-danger"  v-on:click=deleteStudentByRoll(student.rollNumber)>Delete</button></td>
         </tr>
     </tbody>
@@ -62,6 +62,12 @@ export default{
       this.$router.push("/CreateStudent");
         },
 
+        updateStudent(id)
+    {
+      
+      this.$router.push(`/UpdateStudent/${id}`);
+     
+    },
         deleteStudentByRoll(rollNumber){
             StudentDataService.deleteStudentByRoll(rollNumber).then(()=>{
 
