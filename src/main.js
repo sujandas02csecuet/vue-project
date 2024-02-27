@@ -13,6 +13,7 @@ import CreateStudent from './components/CreateStudent.vue';
 import CreateEmployee from './components/CreateEmployee.vue';
 import UpdateSchool from './components/UpdateSchool.vue'
 import UpdateStudent from './components/UpdateStudent.vue'
+import UpdateEmployee from './components/UpdateEmployee.vue'
 
 const router = createRouter({
     history: createWebHistory(),
